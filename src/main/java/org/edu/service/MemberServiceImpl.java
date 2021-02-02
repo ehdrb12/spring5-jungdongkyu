@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * MemberServiceImpl는 DAO메서드 호출을 구현
- * @author 김일국
+ * @author 정동규
  *
  */
 @Service
@@ -61,7 +61,7 @@ public class MemberServiceImpl implements IF_MemberService {
 	@Override
 	public void herokuJobMethod() throws Exception {
 		// 월-금 오전8시부터 오후 11시 (미국시간 23,0-14) 헤로쿠앱에 20분간격으로 URL접근
-		String urlStr = "https://kimilguk.herokuapp.com";//본인앱주소
+		String urlStr = "https://spring5-jungdongkyu.herokuapp.com";//본인앱주소
 		URL url = new URL(urlStr);
 		HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();//접속시작
 		urlConnection.setUseCaches(false);//기존접속된 정보가 있든지 없든지 무조건 접속
