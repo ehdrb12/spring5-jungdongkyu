@@ -109,13 +109,13 @@ public class DataSourceTest {
 	@Test
 	public void insertBoard() throws Exception {
 		BoardVO boardVO = new BoardVO();
-		boardVO.setBoard_type("gallery");
+		boardVO.setBoard_type("notice");
 		boardVO.setTitle("더미게시물");
 		boardVO.setContent("더미 내용 입니다.");
 		boardVO.setWriter("일반사용자");
 		
 		//boardVO.setBno(프라이머리키);
-		for(int cnt=0;cnt<=0;cnt++) {//더미게시물 100입력
+		for(int cnt=0;cnt<=10;cnt++) {//더미게시물 100입력
 			Date reg_date = new Date();
 			Calendar cal = Calendar.getInstance();//+
 			cal.setTime(reg_date);//+
@@ -124,6 +124,8 @@ public class DataSourceTest {
 			boardVO.setReg_date(cal.getTime());//이부분이 작동을 하지 않아서 문제
 			//???????????????????????????????????????????
 			boardDAO.insertBoard(boardVO);
+			Thread.sleep(1000);//+for반복문을 잠시 대기, 예, 100번 100초가 걸립니다.
+			//스레드는 현재 실행중인 클래스(인스턴스)를 말합니다.
 		}
 	}
 	
@@ -154,6 +156,7 @@ public class DataSourceTest {
 			memberVO.setReg_date(cal.getTime());//이부분이 작동을 하지 않아서 문제
 			//???????????????????????????????????????????
 			memberDAO.insertMember(memberVO);
+			Thread.sleep(1000);//1초간 쉼
 		}		
 	}
 	
